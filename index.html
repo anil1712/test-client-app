@@ -23,12 +23,11 @@
     <![endif]-->
     <div class="container">
         <div class="header">
-            <h3 class="text-muted">API Learning</h3>
+            <h3 class="text-muted">API Learning using Fetch</h3>
         </div>
 
         <div class="jumbotron">
             <h2>Make an API call using fetch()</h2>
-            <div class="hidden" id="calling-movies"></div>
             <p>
                 <a class="btn btn-lg btn-primary" href="#" id="calling-chuck" onclick="makeAPICall('get')">GET API</a>
                 <a class="btn btn-lg btn-success" href="#" id="calling-chuck" onclick="makeAPICall('post')">POST API</a>
@@ -49,14 +48,14 @@
     </div>
     <script>
         function makeAPICall(method) {
-            fetch('http://localhost:8000/api/hello', {
+            fetch('http://localhost:8000/api/student', {
                 method
                 //credentials: 'include', // Useful for including session ID (and, IIRC, authorization headers)
             })
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('data-drop').innerHTML = data.message;
-                    console.log(data) // Prints result from `response.json()`
+                    //console.log(data) // Prints result from `response.json()`
                 })
                 .catch(error => console.error(error))
         }
